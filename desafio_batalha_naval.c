@@ -24,8 +24,8 @@ int main() {
     int linhaNavioDiagonal1 = 0;   // começa em [1][1]
     int colunaNavioDiagonal1 = 0;
 
-    int linhaNavioDiagonal2 = 2;   // começa em [3][8]
-    int colunaNavioDiagonal2 = 7;
+    int linhaNavioDiagonal2 = 4;   // começa em [5][7]
+    int colunaNavioDiagonal2 = 6;
 
     // 3. Posicionar navio horizontal (tamanho 3)
     if (colunaNavioHorizontal + NAVIO <= 10) {
