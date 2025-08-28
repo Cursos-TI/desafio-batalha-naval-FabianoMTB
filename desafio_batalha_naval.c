@@ -15,11 +15,17 @@ int main() {
     }
 
     // 2. Definir posições iniciais dos navios
-    int linhaNavioHorizontal = 2;  // linha 3 (posição vertical)
-    int colunaNavioHorizontal = 4; // coluna E (horizontal)
+    int linhaNavioHorizontal = 2;  // linha 3
+    int colunaNavioHorizontal = 4; // coluna E
 
     int linhaNavioVertical = 5;    // linha 6
     int colunaNavioVertical = 7;   // coluna H
+
+    int linhaNavioDiagonal1 = 0;   // começa em [1][1]
+    int colunaNavioDiagonal1 = 0;
+
+    int linhaNavioDiagonal2 = 2;   // começa em [3][8]
+    int colunaNavioDiagonal2 = 7;
 
     // 3. Posicionar navio horizontal (tamanho 3)
     if (colunaNavioHorizontal + NAVIO <= 10) {
@@ -37,7 +43,25 @@ int main() {
         }
     }
 
-    // 5. Exibir o tabuleiro formatado
+    // 5. Posicionar navio diagonal principal (↘)
+    if (linhaNavioDiagonal1 + NAVIO <= 10 && colunaNavioDiagonal1 + NAVIO <= 10) {
+        for (int i = 0; i < NAVIO; i++) {
+            if (tabuleiro[linhaNavioDiagonal1 + i][colunaNavioDiagonal1 + i] == 0) {
+                tabuleiro[linhaNavioDiagonal1 + i][colunaNavioDiagonal1 + i] = 3;
+            }
+        }
+    }
+
+    // 6. Posicionar navio diagonal secundária (↙)
+    if (linhaNavioDiagonal2 + NAVIO <= 10 && colunaNavioDiagonal2 - NAVIO >= -1) {
+        for (int i = 0; i < NAVIO; i++) {
+            if (tabuleiro[linhaNavioDiagonal2 + i][colunaNavioDiagonal2 - i] == 0) {
+                tabuleiro[linhaNavioDiagonal2 + i][colunaNavioDiagonal2 - i] = 3;
+            }
+        }
+    }
+
+    // 7. Exibir o tabuleiro formatado
     printf(" **TABULEIRO BATALHA NAVAL** \n\n");
 
     // Cabeçalho com letras (colunas)
